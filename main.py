@@ -1,3 +1,7 @@
+# Tomatoe app by pcdrills
+#  You can modify the values of the constants written but if you are unsure what a value represents, 
+#  Then it's better you allow it as it is.
+
 from tkinter import *
 
 
@@ -23,6 +27,8 @@ def reset_timer():
     reps = 0
     
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
+# starts the timer and decides on the the amount of time it has to count and decideson whether 
+# it's a break or short time or long break using the reps count value
 def start_timer():
     # count_down(50)
     global reps
@@ -44,6 +50,8 @@ def start_timer():
         
     
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
+# responsible for  timer counting down on the tomatoe and updating the values of the time
+# and also the values of the reps displayed on the left of the tomatoe
 import math
 
 def count_down(count):
@@ -76,6 +84,7 @@ def count_down(count):
 
 
 # ---------------------------- UI SETUP ------------------------------- #
+# All the initial interface or display
 
 window = Tk()
 window.title("Tomatoe Timer - Work/Rest Time Management - #pcdrills")
@@ -94,7 +103,7 @@ session_info_label.grid(column=2, row=1)
 session_count = Label(text=f"REP: {reps}", fg=GREEN, bg=YELLOW,font=(FONT_NAME, 20))
 session_count.grid(column=1, row=2)
 
-#Create a canvas for the tomatoe image and the time
+#Create a canvas for the tomatoe image and the time on it
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
@@ -111,7 +120,11 @@ reset_button.grid(column=3, row=3)
 
 #create the green check mark
 check_mark = Label(text="")
-check_mark.grid(column=2, row=4)
+check_mark.grid(column=1, row=4)
 
+
+#pc drills text written at the bottum
+pcdrills_text = Label(text="github.com/pcdrills", fg='black', bg=YELLOW,font=(FONT_NAME, 12))
+pcdrills_text.grid(column=2, row=5)
 
 window.mainloop()
